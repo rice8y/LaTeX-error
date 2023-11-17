@@ -64,7 +64,7 @@ This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)
 \usepackage{color} 
 ```
 
->従来の LaTeX では, `\usepackage[dvipdfmx]{graphicx}` のように DVI ドライバを指定していたが, LuaLaTeXは適切なドライバを自動で選択してくれるため, ユーザが指定する必要はない.
+>従来の LaTeX では, `\usepackage[dvipdfmx]{graphicx}` のように DVI ドライバを指定していたが, LuaLaTeXは適切なドライバを自動で選択してくれるため, ユーザが指定する必要はない.  
 ><a href="https://www.metaphysica.info/uplatex-to-lualatex/" target="_blank">p/upLaTeX から LuaLaTeX へ移行すべき理由と方法</a>
 
 ## Error02
@@ -74,7 +74,7 @@ This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)
 ### A. tcolorbox を利用. ページまたぎをするためにはオプションにbreakableを追加する
 
 >itembkbxパッケージのbreakitemboxを利用する方法もあるが上手くいかなかった...
-なお, itembkbxはCTANにないため, GitHubから入手する必要がある.
+なお, itembkbxはCTANにないため, GitHubから入手する必要がある.  
 ><a href="https://muscle-keisuke.hatenablog.com/entry/2016/02/11/195004" target="_blank">LaTeXで載せたプログラムソースがページを跨ぐ場合の対処法について</a>
 
 #### 使用例
@@ -96,7 +96,7 @@ tcolorboxパッケージはCTANに含まれている (TeX Live2022 には初め�
 
 tcolorboxのオプションに `breakable` を指定するためには, プリアンブルに `\tcbuselibrary{breakable}` を加える必要がある.
 
-><a href="https://texmedicine.hatenadiary.jp/entry/2015/12/17/000339" target="_blank">tcolorboxの基本</a>
+><a href="https://texmedicine.hatenadiary.jp/entry/2015/12/17/000339" target="_blank">tcolorboxの基本</a>  
 ><a href="https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/tcolorbox/tcolorbox.pdf" target="_blank">tcolorbox Manual for version 6.1.0 (2023/09/26)</a>
 
 ## Error03
