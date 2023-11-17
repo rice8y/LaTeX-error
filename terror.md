@@ -30,7 +30,7 @@ kpathsea version 6.3.4
 
 使用しているLaTeXを [`hello.tex`](https://gist.github.com/zr-tex8r/27bc6ddf376d4f716e7276c7dad5ec75) で確認. [`hello.tex`](https://gist.github.com/zr-tex8r/27bc6ddf376d4f716e7276c7dad5ec75) をビルドし, 生成された `hello.pdf` に使用している LaTeX が表示される.
 
-> <a href="https://qiita.com/zr_tex8r/items/a924be192ecea7e6bbe4" target="_blank">自分がどのLaTeXを使ってるか知りたい話</a>
+> https://qiita.com/zr_tex8r/items/a924be192ecea7e6bbe4  
 
 ##### hello.pdf
 
