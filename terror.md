@@ -1,6 +1,6 @@
 # LaTeX 忘備録
 
-LaTeX を使っていてエラーなどでつまずいたものの中で解決できたものをここに忘備録として記す. 
+LaTeX を使っていてエラーなどでつまずいたものの中で解決できたものをここに忘備録として記す.
 
 ## 目次
 
@@ -11,7 +11,7 @@ LaTeX を使っていてエラーなどでつまずいたものの中で解決�
 
 ## 環境
 
-実行環境及びLaTeXのバージョンは以下の通り. 
+実行環境及びLaTeXのバージョンは以下の通り.
 
 `cmd` で `code --v` とすることで VScode のバージョンを確認.
 
@@ -20,7 +20,6 @@ LaTeX を使っていてエラーなどでつまずいたものの中で解決�
 1a5daa3a0231a0fbba4f14db7ec463cf99d7768e
 x64
 ```
-
 
 TeX Live のバージョンを `tex --v` で確認.
 
@@ -31,8 +30,10 @@ kpathsea version 6.3.4
 
 使用しているLaTeXを [`hello.tex`](https://gist.github.com/zr-tex8r/27bc6ddf376d4f716e7276c7dad5ec75) で確認. [`hello.tex`](https://gist.github.com/zr-tex8r/27bc6ddf376d4f716e7276c7dad5ec75) をビルドし, 生成された `hello.pdf` に使用している LaTeX が表示される.
 
+> <a href="https://qiita.com/zr_tex8r/items/a924be192ecea7e6bbe4" target="_blank">自分がどのLaTeXを使ってるか知りたい話</a>
+
 ##### hello.pdf
->
+
 > ![hello](hello.png)
 
 LuaLaTeX のバージョンを `lualatex --v` で確認.
@@ -104,7 +105,7 @@ tcolorboxのオプションに `breakable` を指定するためには, プリ�
 
 ### A. small コマンドなどを利用して longtable 内のフォントサイズを小さくする
 
-> `tabular` を縮小する際には `\resizebox` が使えるが, `longtable` に対しては使えない. 
+> `tabular` を縮小する際には `\resizebox` が使えるが, `longtable` に対しては使えない.
 
 #### 使用例
 
