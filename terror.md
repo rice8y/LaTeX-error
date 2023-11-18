@@ -44,9 +44,9 @@ This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)
 
 ### 総括
 
-> VScode 1.84.2 (x64)
-> TeX Live 2022
-> LuaLaTeX on LuaHBTeX Version 1.15.0
+> VScode 1.84.2 (x64)  
+> TeX Live 2022  
+> LuaLaTeX on LuaHBTeX Version 1.15.0  
 
 `lualatex` には, LaTeX エンジンの LuaLaTeX と TeX エンジンの LuaHBTeX がある. TeX Live 2022 には, LuaHBTeX 1.15.0, LuaTeX 1.15.0 が収録されている. LuaHBTeX は, LuaLaTeX を日本語組版に特化させたもので, テキストレイアウトエンジンである HarfBuzz ライブラリを使用している.
 
