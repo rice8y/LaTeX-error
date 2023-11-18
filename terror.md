@@ -73,7 +73,7 @@ This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)
 
 ### A. tcolorbox を利用. ページまたぎをするためにはオプションにbreakableを追加する
 
->itembkbxパッケージのbreakitemboxを利用する方法もあるが上手くいかなかった...
+>itembkbxパッケージのbreakitemboxを利用する方法もあるが上手くいかなかった...  
 なお, itembkbxはCTANにないため, GitHubから入手する必要がある.  
 ><a href="https://muscle-keisuke.hatenablog.com/entry/2016/02/11/195004" target="_blank">LaTeXで載せたプログラムソースがページを跨ぐ場合の対処法について</a>
 
