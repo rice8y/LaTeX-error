@@ -1,13 +1,17 @@
 # LaTeX 忘備録
 
-LaTeX を使っていてエラーなどでつまずいたものの内, 解決できたものをここに忘備録として記す.
+LaTeX を使っていてエラーなどでつまずいたものの中で解決できたものをここに忘備録として記す.
 
 ## 目次
 
 - [環境](#環境)
-- [Error01 (2023/11/02)](#error01)
-- [Error02 (2023/11/12)](#error02)
-- [Error03 (2023/11/16)](#error03)
+- [Resolved](#resolved)
+  - [Error01 (2023/11/02)](#error01)
+  - [Error02 (2023/11/12)](#error02)
+  - [Error03 (2023/11/16)](#error03)
+- [Unresolved](#unresolved)
+  - [ErrorA(unresolved) (2023/12/11)](#erroraunresolved)
+  - [ErrorB(unresolved) (2023/12/11)](#errorbunresolved)
 
 ## 環境
 
@@ -50,11 +54,13 @@ This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)
 
 `lualatex` には, LaTeX エンジンの LuaLaTeX と TeX エンジンの LuaHBTeX がある. TeX Live 2022 には, LuaHBTeX 1.15.0, LuaTeX 1.15.0 が収録されている. LuaHBTeX は, LuaLaTeX を日本語組版に特化させたもので, テキストレイアウトエンジンである HarfBuzz ライブラリを使用している.
 
+## Resolved
+
 ## Error01
 
-### Q. Adobe Acrobat で .pdf を開くと, 「このページにはエラーがあります。Acrobatはページを正しく表示できない場合があります。PDF文書の作成者に連絡して、問題を解決してください。」というエラーが発生
+### Q. Adobe Acrobat で .pdf を開くと, 「このページにはエラーがあります。Acrobatはページを正しく表示できない場合があります。PDF文書の作成者に連絡して、問題を解決してください。」というエラーが発生.
 
-### A. LuaLaTex では DVI 形式を経由せずに PDF を出力するため, DVI ドライバの設定は削除しなければならない
+### A. LuaLaTex では DVI 形式を経由せずに PDF を出力するため, DVI ドライバの設定は削除しなければならない.
 
 #### 使用例
 
@@ -69,9 +75,9 @@ This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)
 
 ## Error02
 
-### Q. itembox でページをまたぎたい
+### Q. itembox でページをまたぎたい.
 
-### A. tcolorbox を利用. ページまたぎをするためにはオプションにbreakableを追加する
+### A. tcolorbox を利用. ページまたぎをするためにはオプションにbreakableを追加する.
 
 >itembkbxパッケージのbreakitemboxを利用する方法もあるが上手くいかなかった...  
 なお, itembkbxはCTANにないため, GitHubから入手する必要がある.  
@@ -101,9 +107,9 @@ tcolorboxのオプションに `breakable` を指定するためには, プリ�
 
 ## Error03
 
-### Q. Overfull \hbox となる longtable を resize したい
+### Q. Overfull \hbox となる longtable を resize したい.
 
-### A. small コマンドなどを利用して longtable 内のフォントサイズを小さくする
+### A. small コマンドなどを利用して longtable 内のフォントサイズを小さくする.
 
 > `tabular` を縮小する際には `\resizebox` が使えるが, `longtable` に対しては使えない.
 
@@ -146,3 +152,75 @@ tcolorboxのオプションに `breakable` を指定するためには, プリ�
 ```
 
 `{\small\begin{longtable} \end{longtable}}` でも可能.
+
+## Unresolved
+
+## ErrorA(unresolved)
+
+### Q. コンパイル年月日をヘッダーに記載したい.
+
+### Try. Lua の os.date を利用する.
+
+プリアンブルを以下のようにしたがエラーが発生し駄目だった.
+
+```latex
+\usepackage{luacode}
+
+\begin{luacode*}
+function getCompilationdate()
+    local date = os.date("%Y.%m.%d")
+    tex.sprint(date)
+end
+\end{luacode*}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% \lhead{}
+\chead{\textit{Discrete Optimization}}
+\rhead{\directlua{getCompilationdate()}}
+```
+
+luacode 環境内を以下のように変えてもエラーとなり駄目だった...
+
+```latex
+\begin{luacode*}
+function getCompilationdate()
+    local d = os.date('t*')
+    tex.sprint(d.year .. "." .. d.month .. "." .. d.day)
+\end{luacode*}
+```
+
+## ErrorB(unresolved)
+
+### Q. \newenvironment コマンドで tcolorbox 環境と verbatim 環境のネスト環境を作りたい.
+
+### Try. 以下のように記述.
+
+```latex
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+\newenvironment{codebk}[1]{
+    \begin{tcolorbox}[title=#1, colback=white, breakable]
+        \begin{verbatim}
+}{
+        \end{verbatim}
+    \end{tcolorbox}
+}
+```
+
+プリアンブルに上記のように記述した上でドキュメントに以下のように記述.
+
+```latex
+\begin{codebk}{Mytitle}
+    #include <stdio.h>
+
+    int main(void){
+        printf("demo"\n);
+
+        return 0;
+    }
+\end{codebk}
+```
+
+エラーが発生し上手くいかず...
